@@ -1,8 +1,30 @@
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main(){
+//     int n;cin>>n;
+//     int arr[n];
+//     for(int i=0;i<n;i++){
+//         cin>>arr[i];
+//     }
+//     for(int i=1;i<n;i++){
+//         int j=i-1;
+//         int key=arr[i];
+//         while(j>=0 && key<arr[j]){
+//             arr[j+1]=arr[j];
+//             j--;
+//         }
+//         arr[j+1]=key;
+//     }
+//     for(int i=0;i<n;i++){
+//         cout<<arr[i]<<" ";
+//     }
+// }
+
 #include<bits/stdc++.h>
 using namespace std;
 
-void merge(vector<int> &arr,int st,int mid,int end){
-    vector<int> temp;
+void merge(vector<int>&arr,int st,int mid,int end){
+    vector<int>temp;
     int i=st,j=mid+1;
     while(i<=mid && j<=end){
         if(arr[i]<=arr[j]){
