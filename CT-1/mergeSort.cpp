@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-using namespace std;
+using namespace std; 
 
 void merge(vector<int> &arr,int st,int mid,int end){
     vector<int> temp;
