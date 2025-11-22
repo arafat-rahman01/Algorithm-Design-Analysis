@@ -10,7 +10,7 @@ void dfs(int node, vector<vector<int>> &adj, vector<int> &vis, stack<int> &st) {
         }
     }
 
-    st.push(node);   // কাজ শেষে stack-এ ঢুকাও
+    st.push(node);
 }
 
 int main() {
