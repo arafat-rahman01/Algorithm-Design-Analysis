@@ -7,7 +7,8 @@ int main(){
         cin>>id[i]>>deadline[i]>>profit[i];
     }
      vector<pair<int,pair<int,int>>>jobs;
-     for(int i=0;i<n;i++) jobs.push_back({profit[i],{deadline[i],id[i]}});
+     for(int i=0;i<n;i++)
+    jobs.push_back({profit[i],{deadline[i],id[i]}});
      sort(jobs.rbegin(),jobs.rend());
 
      int maxDeadline=0;
