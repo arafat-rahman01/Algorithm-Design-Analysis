@@ -1,23 +1,17 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-int main() {
-    string X, Y;
-    cin >> X >> Y;
-
-    int n = X.size();
-    int m = Y.size();
-
+int main(){
+    string s1,s2;cin>>s1>>s2;
+    int n=s1.size(),m=s2.size();
     vector<vector<int>>dp(n+1,vector<int>(m+1,0));
-
     for(int i=1;i<=n;i++){
         for(int j=1;j<=m;j++){
-            if(X[i-1]==Y[i-1]){
+            if(s1[i-1]==s2[j-1]){
                 dp[i][j]=1+dp[i-1][j-1];
             }else{
                 dp[i][j]=max(dp[i-1][j],dp[i][j-1]);
             }
         }
     }
-    cout<<dp[n][m]<<endl;
-
+    cout<<dp[n][m];
 }
