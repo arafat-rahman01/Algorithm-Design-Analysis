@@ -1,33 +1,34 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int par(vector<int>&arr,int st,int end){
-    int p=arr[st];
-    int i=st+1;
-    int j=end;
+int par(vector<int> &a,int low,int high){
+    int pivot=a[low];
+    int i=low+1;
+    int j=high;
 
     while(true){
-        while(i<=end && arr[i]<=p) i++;
-        while(j>=st && arr[j]>p) j--;
-        if(i<j) swap(arr[i],arr[j]);
+        while(i<=high && a[i]<=pivot) i++;
+        while(j>=low && a[j]>pivot) j--;
+        if(i<j) swap(a[i],a[j]);
         else break;
     }
-    swap(arr[st],arr[j]);
+    swap(a[low],a[j]);
     return j;
+
 }
 
-void quickSort(vector<int>&arr,int st,int end){
-    if(st<end){
-        int p=par(arr,st,end);
-        quickSort(arr,st,p-1);
-        quickSort(arr,p+1,end);
+void quickSort(vector<int> &a,int low,int high){
+    if(low<high){
+        int p=par(a,low,high);
+        quickSort(a,low,p-1);
+        quickSort(a,p+1,high);
+
     }
 }
-
 int main(){
-    int n;cin>>n;
-    vector<int>arr(n);
-    for(int i=0;i<n;i++)cin>>arr[i];
-    quickSort(arr,0,n-1);
-    for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+    vector<int>a={12,34,2,3,67,4,7,5,11,14};
+    quickSort(a,0,a.size()-1);
+    for(int i:a){
+        cout<<i<<" ";
+    }
 }
