@@ -1,56 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void merge(vector<int>&arr,int st,int mid,int end){
-    int i=st,j=mid+1;
-    vector<int>temp;
-    while(i<=mid && j<=end){
-        if(arr[i]<=arr[j]){
-            temp.push_back(arr[i]);
-            i++;
-        }else{
-            temp.push_back(arr[j]);
-            j++;
-        }
-    }
-    while(i<=mid){
-        temp.push_back(arr[i]);
-        i++;
-    }
-    while(j<=end){
-        temp.push_back(arr[j]);
-        j++;
-    }
-    for(int i=0;i<temp.size();i++){
-        arr[st+i]=temp[i];
-    }
-}
+// int par(vector<int>&arr,int low,int high){
+//     int pivot=arr[low];
+//     int i=low+1,j=high;
+//     while(true){
+//         while(i<=high && arr[i]<=pivot) i++;
+//         while(j>=low && arr[j]>pivot)j--;
+//         if(i<j) swap(arr[i],arr[j]);
+//         else break;
+//     }
+//     swap(arr[low],arr[high]);
+//     return j;  
+// }
 
-void mergeSort(vector<int>&arr,int st,int end){
-    int n = arr.size();
+// void quickSort(vector<int>&arr,int low,int high){
+//     if(low<high){
+//         int p=par(arr,low,high);
+//         quickSort(arr,low,p-1);
+//         quickSort(arr,p+1,high);
+//     }
+// }
 
-    // size = 1, 2, 4, 8, ...
-    for(int size = 1; size < n; size *= 2){
-        
-        // প্রতিবার দুইটি 'size' ব্লক merge
-        for(int st = 0; st < n; st += 2 * size){
-            int mid = min(st + size - 1, n - 1);
-            int en  = min(st + 2*size - 1, n - 1);
+// int main(){
+//     int n;cin>>n;
+//     vector<int>arr(n);
+//     for(int i=0;i<n;i++) cin>>arr[i];
+//     quickSort(arr,0,n-1);
+//     for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+// }
 
-            if(mid < en)
-                merge(arr, st, mid, en);
-        }
-    }
-}
-
-int main(){
-    int n;cin>>n;
-    vector<int>arr(n);
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
-    }
-    mergeSort(arr,0,n-1);
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
-}
