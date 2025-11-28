@@ -30,3 +30,34 @@ using namespace std;
 //     for(int i=0;i<n;i++) cout<<arr[i]<<" ";
 // }
 
+int crossSum(vector<int>&arr,int st,int mid,int end){
+    int ls=INT_MIN,rs=INT_MIN;
+    int sum=0;
+    for(int i=mid;i>=st;i--){
+        sum+=arr[i];
+        ls=max(sum,ls);
+    }
+    sum=0;
+    for(int j=mid+1;j<=end;j++){
+        sum+=arr[j];
+        rs=max(sum,rs);
+    }
+    return ls+rs;
+}
+
+int subArraySum(vector<int>&arr,int st,int end){
+    if(st==end) return arr[st];
+    int mid=(st+end)/2;
+    int lm=subArraySum(arr,st,mid);
+    int rm=subArraySum(arr,mid+1,end);
+    int c=crossSum(arr,st,mid,end);
+
+    return max({lm,rm,c});
+}
+
+int main(){
+    int n;cin>>n;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++) cin>>arr[i];
+    cout<<subArraySum(arr,0,n-1);
+}

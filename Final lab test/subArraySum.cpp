@@ -14,7 +14,7 @@ int crossSum(vector<int>&arr,int st,int mid,int end){
         sum+=arr[i];
         rightSum=max(rightSum,sum);
     }
-    return leftSum+rightSum;
+    return leftSum+rightSum; 
 }
 
 int findMaxSubArraySum(vector<int>&arr,int st,int end){
