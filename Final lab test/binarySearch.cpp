@@ -23,22 +23,26 @@ int main(){
 // #include<bits/stdc++.h>
 // using namespace std;
 // int main(){
-//     int n;cin>>n;
+//     int n;
+//     cin>>n;
 //     vector<int>arr(n);
 //     for(int i=0;i<n;i++) cin>>arr[i];
 //     int key;cin>>key;
-//     bool f=false;
 //     int st=0,end=n-1;
-//     for(int i=0;i<n;i++){
+//     bool f=false;
+//     while(st<=end){
 //         int mid=(st+end)/2;
 //         if(arr[mid]==key){
 //             f=true;
-//         }else if(arr[mid]>key){
-//             end=mid;
-//         }else{
+//             break;
+//         }
+//         else if(arr[mid]>key){
+//             end=mid-1;
+//         }
+//         else{
 //             st=mid+1;
 //         }
 //     }
-//     if(f)cout<<"Found";
-//     else cout<<"No";
+//     if(f) cout<<"Yes";
+//     else cout<<"No"; 
 // }
