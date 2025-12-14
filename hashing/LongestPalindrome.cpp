@@ -1,24 +1,17 @@
-#include<bits/stdc++.h>
-using namespace std;
-int main(){
-    string s;cin>>s;
-    int n=s.length();
-    unordered_map<char,int>freq;
-    for(char c:s){
-        freq[c]++;
-    }
-    // for(auto i:freq){
-    //     cout<<i.first<<" "<<i.second<<endl;
-    // }
-    
-    for(auto i:freq){
-        if(i.second%2==0){
-            cout<<i.first<<" "<<i.second<<endl;
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        int oddCount = 0;
+        unordered_map<char, int> ump;
+        for(char ch : s) {
+            ump[ch]++;
+            if (ump[ch] % 2 == 1)
+                oddCount++;
+            else    
+                oddCount--;
         }
+        if (oddCount > 1)
+            return s.length() - oddCount + 1;
+        return s.length();
     }
-    for(auto i:freq){
-        if(i.second%2!=0){
-            cout<<i.first<<" "<<i.second<<endl;
-        }
-    }
-}
+};
